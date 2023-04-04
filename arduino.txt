@@ -1,0 +1,2902 @@
+
+Evolução dos códigos
+
+// C++ code
+//				
+//					
+// abrir rua a
+// verde ligado 45 seg
+// desliga verde
+//  liga amarelo 5 seg
+// 
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);  //quando rua A está verde, rua B tem que estar vermelho
+  pinMode(rua_a_subin_amarelo, OUTPUT);   //quando rua A está amarelo, rua B ainda precisa estar vermelho
+  pinMode(rua_a_subin_verde, OUTPUT);	  //o mesmo precisa acontecer na rua B
+  pinMode(rua_b_vermelho, OUTPUT);	  //if(verifica_ruaA_verde || (verifica_ruaA_amarelo)
+  pinMode(rua_b_amarelo, OUTPUT);	  //led rua B vermelho ligado
+  pinMode(rua_b_verde, OUTPUT);		  //if(verifica_ruaB_verde || verifica_ruaB_verde)
+  pinMode(pedestre_vermelho, OUTPUT);	  //led rua A vermelho ligado
+  pinMode(pedestre_verde, OUTPUT);
+}
+
+void loop()
+{
+
+	verifica_rua_A = digitalRead(ledVerde1);
+	verifica_rua_B= digitalRead(ledVerde2);
+	
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(pedestre_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+
+}
+
+
+--------------------
+// C++ code
+//
+// rotina ligar semaforo
+// verde ligado 45 seg
+// desliga verde
+//  liga amarelo 5 seg
+// desliga amarelo
+// liga verde 35 seg
+
+void rotinaSemaforoADescendo()
+{
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  delay(500);
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  
+  digitalWrite(rua_a_desc_verde, HIGH);
+  delay(3500);
+  digitalWrite(rua_a_desc_verde, LOW);
+}
+void rotinaSemaforoASubindo()
+{
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  delay(500);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_a_subin_verde, HIGH);
+  delay(3500);
+  digitalWrite(rua_a_subin_verde, LOW);
+}
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_subin_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_amarelo, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_b_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(pedestre_verde, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+
+}
+
+
+
+combinações possíveis
+
+quando verde 15seg e amarelo 5seg a1 e a2 ligado vermelho b
+quando verde 15seg e amaerlo 5seg B ligado vermelho a1 e a2
+
+
+
+const int ledVermelho1 = 11; //Via 1
+const int ledAmarelo1 = 12;
+const int ledVerde1 = 13;
+
+const int ledVermelho2 = 5; //Via 2
+const int ledAmarelo2 = 4;
+const int ledVerde2 = 3;
+
+const int ledVermelhoT = 2; //Rua transversal
+const int ledAmareloT = 3;
+const int ledVerdeT = 4;
+
+const int botao = 2;
+
+boolean verde1 = false;
+boolean verde2 = false;
+boolean verdeT = false;
+boolean pressionado = false;
+
+void setup() {
+pinMode(ledVermelho1, OUTPUT);
+pinMode(ledAmarelo1, OUTPUT);
+pinMode(ledVerde1, OUTPUT);
+
+pinMode(ledVermelho2, OUTPUT);
+pinMode(ledAmarelo2, OUTPUT);
+pinMode(ledVerde2, OUTPUT);
+
+pinMode(ledVermelhoT, OUTPUT);
+pinMode(ledAmareloT, OUTPUT);
+pinMode(ledVerdeT, OUTPUT);
+
+pinMode(botao, INPUT);
+}
+
+void loop() {
+//Atualiza flags de acordo com os pinos
+verde1 = digitalRead(ledVerde1);
+verde2 = digitalRead(ledVerde2);
+verdeT = digitalRead(ledVerdeT);
+
+pressionado = digitalRead(botao);
+
+if (verde1 && verde2 && !verdeT) { //Vias abertas, transversal fechado
+if (!pressionado) { //Botão solto
+verdeT = true;
+}
+
+} else if (!verde1 && !verde2 && verdeT) { //Vias fechadas, transversal aberto
+if (pressionado) { //Botão apertado
+delay(2000); //2 seg
+}
+
+} else {
+//Controle normal dos semáforos
+}
+}
+
+----------------
+
+
+// C++ code
+//
+// rotina ligar semaforo
+// verde1 ligado 45 seg enquanto ligado, vermelho2 ligado
+// desliga verde
+//  liga amarelo 5 seg
+// desliga amarelo
+// liga verde 35 seg
+
+
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  
+}
+void rotinaSemaforoADescendoESubindo()
+{
+  //luzes vermelhas ligadas das vias da rua a
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  //luz verde da rua b ligada
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(4500);
+  
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(1500);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  // luz verde apagada da rua b
+  digitalWrite(rua_b_verde, LOW);
+  
+  //luz verde das vias da rua a acesas
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  
+  delay(3500);
+  
+  //luz vermelha da rua b acesa
+  digitalWrite(rua_b_vermelho, HIGH);
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+}
+void rotinaSemaforoRuaB()
+{
+  digitalWrite(rua_b_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  delay(1500);
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_verde, HIGH);
+  delay(3500);
+  digitalWrite(rua_b_verde, LOW);
+}
+void rotinaSemaforoPedestre()
+{
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(pedestre_vermelho, LOW);
+  
+  digitalWrite(pedestre_verde, HIGH);
+  delay(3500);
+  digitalWrite(pedestre_verde, LOW);
+}
+
+void rotinaAeB()
+{
+}
+
+
+void loop()
+{
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000); 
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  delay(1000); 
+  digitalWrite(rua_a_desc_verde, HIGH);
+  delay(1000); 
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  delay(1000);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  delay(1000);
+  digitalWrite(rua_b_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(rua_b_amarelo, HIGH);
+  delay(1000);
+  digitalWrite(rua_b_verde, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_verde, HIGH);
+  delay(1000);
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  delay(1000);
+    
+}
+-------------------------
+
+
+versão poluida mas funcionando
+
+
+// C++ code
+//
+// rotina ligar semaforo
+// verde1 ligado 45 seg enquanto ligado, vermelho2 ligado
+// desliga verde
+//  liga amarelo 5 seg
+// desliga amarelo
+// liga verde 35 seg
+
+
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+	const int tempo_delayVerde = 5500;
+	const int tempo_delayAmarelo = 3500;
+	const int tempo_delayVermelho = 6500;
+	const int tempo_delayPedestre = 3500;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  
+}
+void rotinaSemaforoADescendoESubindo()
+{
+  //luzes verde ligadas das vias da rua a
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  //luz vermelha pedestre ligado
+  digitalWrite(pedestre_vermelho, HIGH);
+  
+  //luz vermelha da rua b ligada
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  delay(tempo_delayVermelho);
+  // apaga luz verde rua a
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+  //liga luz amarela rua a
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  
+  
+  //luz vermelha das vias da rua a acesas
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  
+  // acende luz verde da rua b
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(tempo_delayVerde);
+  
+  digitalWrite(rua_b_verde, LOW);
+  //luz vermelha da rua b acesa
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_verde, HIGH);
+  
+  
+  delay(tempo_delayPedestre);
+  digitalWrite(pedestre_verde, LOW);
+  
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  
+  
+  
+  
+  
+}
+void rotinaSemaforoRuaB()
+{
+  digitalWrite(rua_b_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  delay(1500);
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_verde, HIGH);
+  delay(3500);
+  digitalWrite(rua_b_verde, LOW);
+}
+void rotinaSemaforoPedestre()
+{
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(4500);
+  digitalWrite(pedestre_vermelho, LOW);
+  
+  digitalWrite(pedestre_verde, HIGH);
+  delay(3500);
+  digitalWrite(pedestre_verde, LOW);
+}
+
+void rotinaAeB()
+{
+}
+
+
+void loop()
+{
+      rotinaSemaforoADescendoESubindo();
+}
+
+----------------------------
+ultima versão que mexi, funcionando
+
+// C++ code
+//
+// rotina ligar semaforo
+// verde1 ligado 45 seg enquanto ligado, vermelho2 ligado
+// desliga verde
+//  liga amarelo 5 seg
+// desliga amarelo
+// liga verde 35 seg
+
+
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+	const int tempo_delayVerde = 5500;
+	const int tempo_delayAmarelo = 3500;
+	const int tempo_delayVermelho = 6500;
+	const int tempo_delayPedestre = 3500;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  
+}
+void rotinaSemaforoADescendoESubindo()
+{
+  //luzes verde ligadas das vias da rua a
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  //luz vermelha pedestre ligado
+  digitalWrite(pedestre_vermelho, HIGH);
+  
+  //luz vermelha da rua b ligada
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  delay(tempo_delayVermelho);
+  // apaga luz verde rua a
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+  //liga luz amarela rua a
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  
+  
+  //luz vermelha das vias da rua a acesas
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  
+  // acende luz verde da rua b
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(tempo_delayVerde);
+  
+  digitalWrite(rua_b_verde, LOW);
+  //luz vermelha da rua b acesa
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_verde, HIGH);
+  
+  
+  delay(tempo_delayPedestre);
+  digitalWrite(pedestre_verde, LOW);
+  
+  //luz piscando indicando o pedestre que o semaforo pra ele vai  fechar
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  }
+
+void loop()
+{
+      rotinaSemaforoADescendoESubindo();
+}
+
+
+--------
+
+ultima versaão consertada
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+	const int botao_prioridade = 13;
+	const int tempo_delayVerde = 5500;
+	const int tempo_delayAmarelo = 3500;
+	const int tempo_delayVermelho = 6500;
+	const int tempo_delayPedestre = 3500;
+	bool prioridade_pedestres = false;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  pinMode(botao_prioridade, INPUT);
+  
+}
+void rotinaSemaforoADescendoESubindo()
+{
+}
+
+void rotinaRuaA()
+{
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+  //luzes verde ligadas das vias da rua a
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  //luz vermelha pedestre ligado
+  digitalWrite(pedestre_vermelho, HIGH);
+  
+  //luz vermelha da rua b ligada
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  delay(tempo_delayVermelho);
+  // apaga luz verde rua a
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+  //liga luz amarela rua a
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  //luz vermelha das vias da rua a acesas
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+}
+
+void rotinaRuaB()
+{
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+  // acende luz verde da rua b
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(tempo_delayVerde);
+  
+  digitalWrite(rua_b_verde, LOW);
+  //luz vermelha da rua b acesa
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, HIGH);
+}
+
+void rotinaPedestre()
+{
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_verde, HIGH);
+  
+  
+  delay(tempo_delayPedestre);
+  digitalWrite(pedestre_verde, LOW);
+  
+  //luz piscando indicando o pedestre que o semaforo pra ele vai  fechar
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(1000);
+  digitalWrite(pedestre_vermelho, LOW);
+  
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  prioridade_pedestres = false;
+}
+
+void loop()
+{
+  if (prioridade_pedestres = true) {
+  rotinaPedestre();
+  }
+  rotinaRuaA();
+  if (prioridade_pedestres = true) {
+  rotinaPedestre();
+  }
+  rotinaRuaB();
+  rotinaPedestre();
+}
+
+
+-------------------
+
+ultimo que fiz funcionando
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+	const int botao_prioridade = 13;
+	const int tempo_delayVerde = 4500;
+	const int tempo_delayAmarelo = 2500;
+	const int tempo_delayVermelho = 4500;
+	const int tempo_delayPedestre = 2500;
+	bool prioridade_pedestres = false;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  pinMode(botao_prioridade, INPUT);
+  
+}
+void rotinaSemaforoADescendoESubindo()
+{
+}
+
+void rotinaRuaA()
+{
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+  //luzes verde ligadas das vias da rua a
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  //luz vermelha pedestre ligado
+  digitalWrite(pedestre_vermelho, HIGH);
+  
+  //luz vermelha da rua b ligada
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  delay(tempo_delayVermelho);
+  // apaga luz verde rua a
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+  //liga luz amarela rua a
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  //luz vermelha das vias da rua a acesas
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+}
+
+void rotinaRuaB()
+{
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(tempo_delayVerde);
+  
+  digitalWrite(rua_b_verde, LOW);
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, HIGH);
+}
+
+void rotinaPedestre()
+{
+  digitalWrite(rua_b_verde, LOW);
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  
+  
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_verde, HIGH);
+  
+  
+  delay(tempo_delayPedestre);
+  digitalWrite(pedestre_verde, LOW);
+  
+  //luz piscando indicando o pedestre que o semaforo pra ele vai  fechar
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_vermelho, HIGH);
+
+  
+  
+  
+  prioridade_pedestres = false;
+}
+
+void loop()
+{
+  
+  rotinaRuaA();
+  rotinaRuaB();
+  rotinaPedestre();
+  if(prioridade_pedestres)
+  {
+    rotinaPedestre();
+  }
+}
+  
+---------------------
+
+
+código funcionando 
+
+	const int rua_a_desc_vermelho = 4;
+	const int rua_a_desc_amarelo = 3;
+	const int rua_a_desc_verde = 2;
+	const int rua_a_subin_vermelho = 7;
+	const int rua_a_subin_amarelo = 6;
+	const int rua_a_subin_verde = 5;
+	const int rua_b_vermelho = 10;
+	const int rua_b_amarelo = 9;
+	const int rua_b_verde = 8;
+	const int pedestre_vermelho = 11;
+	const int pedestre_verde = 12;
+	const int botao_prioridade = 13;
+	const int tempo_delayVerde = 4500;
+	const int tempo_delayAmarelo = 2500;
+	const int tempo_delayVermelho = 4500;
+	const int tempo_delayPedestre = 2500;
+	bool prioridade_pedestres = false;
+void setup()
+	
+{
+  pinMode(rua_a_desc_vermelho, OUTPUT);
+  pinMode(rua_a_desc_amarelo, OUTPUT);
+  pinMode(rua_a_desc_verde, OUTPUT);
+  pinMode(rua_a_subin_vermelho, OUTPUT);
+  pinMode(rua_a_subin_amarelo, OUTPUT);
+  pinMode(rua_a_subin_verde, OUTPUT);
+  pinMode(rua_b_vermelho, OUTPUT);
+  pinMode(rua_b_amarelo, OUTPUT);
+  pinMode(rua_b_verde, OUTPUT);
+  pinMode(pedestre_vermelho, OUTPUT);
+  pinMode(pedestre_verde, OUTPUT);
+  pinMode(botao_prioridade, INPUT);
+  
+}
+void rotinaRuaA()
+{
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+  //luzes verde ligadas das vias da rua a
+  digitalWrite(rua_a_desc_vermelho, LOW);
+  digitalWrite(rua_a_subin_vermelho, LOW);
+  digitalWrite(rua_a_desc_verde, HIGH);
+  digitalWrite(rua_a_subin_verde, HIGH);
+  
+  //luz vermelha pedestre ligado
+  digitalWrite(pedestre_vermelho, HIGH);
+  
+  //luz vermelha da rua b ligada
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  delay(tempo_delayVermelho);
+  // apaga luz verde rua a
+  digitalWrite(rua_a_desc_verde, LOW);
+  digitalWrite(rua_a_subin_verde, LOW);
+  //liga luz amarela rua a
+  digitalWrite(rua_a_desc_amarelo, HIGH);
+  digitalWrite(rua_a_subin_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  //luz amarela das vias da rua a apagadas
+  digitalWrite(rua_a_desc_amarelo, LOW);
+  digitalWrite(rua_a_subin_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, LOW);
+
+  //luz vermelha das vias da rua a acesas
+  digitalWrite(rua_a_desc_vermelho, HIGH);
+  digitalWrite(rua_a_subin_vermelho, HIGH);
+  
+  if (digitalRead(botao_prioridade) == HIGH) {
+    prioridade_pedestres = true;}
+  
+}
+
+void rotinaRuaB()
+{
+  digitalWrite(rua_b_vermelho, LOW);
+  
+  digitalWrite(rua_b_verde, HIGH);
+  
+  delay(tempo_delayVerde);
+  
+  digitalWrite(rua_b_verde, LOW);
+  
+  digitalWrite(rua_b_amarelo, HIGH);
+  
+  delay(tempo_delayAmarelo);
+  
+  digitalWrite(rua_b_amarelo, LOW);
+  
+  digitalWrite(rua_b_vermelho, HIGH);
+}
+
+void rotinaPedestre()
+{
+  digitalWrite(rua_b_verde, LOW);
+  digitalWrite(rua_b_vermelho, HIGH);
+  
+  
+  
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_verde, HIGH);
+  
+  
+  delay(tempo_delayPedestre);
+  digitalWrite(pedestre_verde, LOW);
+  
+  //luz piscando indicando o pedestre que o semaforo pra ele vai  fechar
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  delay(600);
+  digitalWrite(pedestre_vermelho, HIGH);
+  delay(600);
+  digitalWrite(pedestre_vermelho, LOW);
+  digitalWrite(pedestre_vermelho, HIGH);
+
+  
+  
+  
+  prioridade_pedestres = false;
+}
+
+void loop()
+{
+  
+  rotinaRuaA();
+  if(prioridade_pedestres)
+  {
+    rotinaPedestre();
+  }
+  rotinaRuaB();
+  rotinaPedestre();
+  
+}
+  
+---------------------
+Mais um só pra confirmar
+
+const int rua_a_desc_vermelho = 4;
+const int rua_a_desc_amarelo = 3;
+const int rua_a_desc_verde = 2;
+const int rua_a_subin_vermelho = 7;
+const int rua_a_subin_amarelo = 6;
+const int rua_a_subin_verde = 5;
+const int rua_b_vermelho = 10;
+const int rua_b_amarelo = 9;
+const int rua_b_verde = 8;
+const int pedestre_vermelho = 11;
+const int pedestre_verde = 12;
+const int botao_prioridade = 13;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(13, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(13);
+    Serial.begin(9600);
+}
+void rotinaRuaA()
+{
+    estadoDoBotao = digitalRead(13);
+    Serial.print("Inicio da rotina A\n");
+    if (digitalRead(botao_prioridade) == HIGH)
+    {
+      prioridade_pedestres = true;
+        Serial.print("Entrou no primeiro if da rotina A setado como HIGH\n");
+        
+    }
+    
+    // luzes verde ligadas das vias da rua a
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha pedestre ligado
+    digitalWrite(pedestre_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha da rua b ligada
+    digitalWrite(rua_b_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    delay(tempo_delayVermelho);
+    // apaga luz verde rua a
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_desc_verde, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_verde, LOW);
+    estadoDoBotao = digitalRead(13);
+    // liga luz amarela rua a
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+    // luz amarela das vias da rua a apagadas
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    estadoDoBotao = digitalRead(13);
+
+    digitalWrite(rua_b_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha das vias da rua a acesas
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    if (estadoDoBotao == HIGH)
+    {
+
+        Serial.print("Entrou no segundo if da rotina A Setado como 1 HIGH\n");
+        prioridade_pedestres = true;
+    }
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    digitalWrite(rua_b_vermelho, LOW);
+
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+
+    digitalWrite(rua_b_vermelho, HIGH);
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    delay(tempo_delayPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+void loop()
+{
+
+    rotinaRuaA();
+
+    if (prioridade_pedestres)
+    {
+        rotinaPedestre();
+        Serial.print("Rotina Pedestre Preferencial\n");
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+}
+
+-------------------------------------
+
+
+
+const int rua_a_desc_vermelho = 4;
+const int rua_a_desc_amarelo = 3;
+const int rua_a_desc_verde = 2;
+const int rua_a_subin_vermelho = 7;
+const int rua_a_subin_amarelo = 6;
+const int rua_a_subin_verde = 5;
+const int rua_b_vermelho = 10;
+const int rua_b_amarelo = 9;
+const int rua_b_verde = 8;
+const int pedestre_vermelho = 11;
+const int pedestre_verde = 12;
+const int botao_prioridade = 13;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(13, INPUT);
+    estadoDoBotao = digitalRead(13);
+    Serial.begin(9600);
+}
+void rotinaRuaA()
+{
+    estadoDoBotao = digitalRead(13);
+    Serial.print("Inicio da rotina A\n");
+    if (digitalRead(botao_prioridade) == HIGH)
+    {
+      prioridade_pedestres = true;
+        Serial.print("Entrou no primeiro if da rotina A setado como HIGH\n");
+        
+    }
+    
+    // luzes verde ligadas das vias da rua a
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha pedestre ligado
+    digitalWrite(pedestre_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha da rua b ligada
+    digitalWrite(rua_b_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    delay(tempo_delayVermelho);
+    // apaga luz verde rua a
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_desc_verde, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_verde, LOW);
+    estadoDoBotao = digitalRead(13);
+    // liga luz amarela rua a
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+    // luz amarela das vias da rua a apagadas
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    estadoDoBotao = digitalRead(13);
+
+    digitalWrite(rua_b_vermelho, LOW);
+    estadoDoBotao = digitalRead(13);
+
+    // luz vermelha das vias da rua a acesas
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    estadoDoBotao = digitalRead(13);
+
+    if (estadoDoBotao == HIGH)
+    {
+		prioridade_pedestres = true;
+        Serial.print("Entrou no segundo if da rotina A Setado como HIGH\n");
+        
+    }
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    digitalWrite(rua_b_vermelho, LOW);
+
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+
+    digitalWrite(rua_b_vermelho, HIGH);
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    delay(tempo_delayPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+void loop()
+{
+
+    rotinaRuaA();
+
+    if (prioridade_pedestres)
+    {
+        rotinaPedestre();
+        Serial.print("Rotina Pedestre Preferencial\n");
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+}
+
+------------------
+trecho que acho que fiz errado
+
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao != valorBotaoAnterior)
+    {
+        if (valorBotao == HIGH)
+        {
+            prioridade_pedestres = true;
+        }
+    }
+    valorBotaoAnterior = valorBotao;
+    delay(10);
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+
+--------------------------------
+
+
+Ultima versão
+
+const int rua_a_desc_vermelho = 4;
+const int rua_a_desc_amarelo = 3;
+const int rua_a_desc_verde = 2;
+const int rua_a_subin_vermelho = 7;
+const int rua_a_subin_amarelo = 6;
+const int rua_a_subin_verde = 5;
+const int rua_b_vermelho = 10;
+const int rua_b_amarelo = 9;
+const int rua_b_verde = 8;
+const int pedestre_vermelho = 11;
+const int pedestre_verde = 12;
+const int botao_prioridade = 13;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(13, INPUT);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+void rotinaRuaA()
+{
+    //já inicia a rotina da rua A verificando a prioridade do pedestre
+    verificaBotaoPressionado();
+    Serial.print("Inicio da rotina A\n");
+
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayVermelho);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayAmarelo);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    //Mais uma verificação da prioridade do pedestre
+    verificaBotaoPressionado();
+    
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    //Uma checagem das luzes vermelhas da rua B
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    //Abertura para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    //Tempo travessia do pedestre
+    delay(tempo_delayPassagemPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+    //Caso a rotina de pedestre seja chamada antes da rotina da Rua B, a prioridade do pedestre é zerada
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao != valorBotaoAnterior)
+    {
+        if (valorBotao == HIGH)
+        {
+            prioridade_pedestres = true;
+        }
+    }
+    valorBotaoAnterior = valorBotao;
+    delay(10);
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+
+void loop()
+{
+    verificaBotaoPressionado();
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+}
+
+
+---------------------
+
+alteração para INPUT_PULLUP
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+void rotinaRuaA()
+{
+    //já inicia a rotina da rua A verificando a prioridade do pedestre
+    verificaBotaoPressionado();
+    Serial.print("Inicio da rotina A\n");
+
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayVermelho);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayAmarelo);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    //Mais uma verificação da prioridade do pedestre
+    verificaBotaoPressionado();
+    
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    //Uma checagem das luzes vermelhas da rua B
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    //Abertura para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    //Tempo travessia do pedestre
+    delay(tempo_delayPassagemPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+    //Caso a rotina de pedestre seja chamada antes da rotina da Rua B, a prioridade do pedestre é zerada
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(50);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == HIGH) {
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+
+void loop()
+{
+  while(digitalRead(botao_prioridade) == HIGH) {
+    Serial.print("Alto? \n");
+  }
+    verificaBotaoPressionado();
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+  while(digitalRead(BUTTON_PIN) == LOW) {
+    Serial.print("Baixo? \n");
+  }
+}
+
+
+-----------------------------------
+Antes de apagaras verificações e a função de verificação
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+void rotinaRuaA()
+{
+    //já inicia a rotina da rua A verificando a prioridade do pedestre
+    verificaBotaoPressionado();
+    Serial.print("Inicio da rotina A\n");
+
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayVermelho);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    verificaBotaoPressionado();
+
+    delay(tempo_delayAmarelo);
+    //depois do delay, verifica a prioridade do pedestre
+    verificaBotaoPressionado();
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    //Mais uma verificação da prioridade do pedestre
+    verificaBotaoPressionado();
+    
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    //Uma checagem das luzes vermelhas da rua B
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    //Abertura para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    //Tempo travessia do pedestre
+    delay(tempo_delayPassagemPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+    //Caso a rotina de pedestre seja chamada antes da rotina da Rua B, a prioridade do pedestre é zerada
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(50);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == HIGH) {
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+
+void loop()
+{
+  while(digitalRead(botao_prioridade) == HIGH) {
+    Serial.print("Sem pressionar \n");
+    delay(500);
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+  }
+    
+  while(digitalRead(botao_prioridade) == LOW) {
+    Serial.print("Pressionado \n");
+    delay(500);
+    prioridade_pedestres = true;
+    delay(50);
+  }
+}
+
+-------------------------------
+Parece que agora foi
+
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+
+void rotinaRuaA()
+{
+    verificaBotaoPressionado();
+    Serial.print("Inicio da rotina A\n");
+	
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    
+
+    delayComVerificacao();
+    
+    
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    
+
+    delayComVerificacao();
+    //depois do delay, verifica a prioridade do pedestre
+    
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    
+    
+    verificaBotaoPressionado();
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.print("Inicio da Rotina Pedestre\n");
+    //Uma checagem das luzes vermelhas da rua B
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    //Abertura para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    //Tempo travessia do pedestre
+    delay(tempo_delayPassagemPedestre);
+    digitalWrite(pedestre_verde, LOW);
+
+    // luz piscando indicando o pedestre que o semaforo pra ele vai fechar
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    delay(600);
+    digitalWrite(pedestre_vermelho, HIGH);
+    delay(600);
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_vermelho, HIGH);
+    //Caso a rotina de pedestre seja chamada antes da rotina da Rua B, a prioridade do pedestre é zerada
+    prioridade_pedestres = false;
+    Serial.print("Final da rotina Pedestre\n");
+}
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(50);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == HIGH) {//erro nesta linha, deveria ser LOW mas já corrigi
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+void delayComVerificacao()
+{
+  
+  for(int i=0; i<7; i++){
+    verificaBotaoPressionado();
+    delay(500);
+  }
+  
+}
+
+void loop()
+{
+  
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();  
+}
+
+
+----------------------------------
+
+codigo ates das otimizaçoes
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+
+void rotinaRuaA()
+{
+    
+    Serial.print("Inicio da rotina A\n");
+	
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    
+
+    delayComVerificacao();
+    
+    
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    
+
+    delayComVerificacao();
+    //depois do delay, verifica a prioridade do pedestre
+    
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    
+    
+    verificaBotaoPressionado();
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+-
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(100);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == LOW) {
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+void delayComVerificacao()
+{
+  
+  for(int i=0; i<7; i++){
+    verificaBotaoPressionado();
+    delay(500);
+  }
+  
+}
+
+void loop()
+{
+  
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+  
+    
+  
+}
+---------------------------------
+Otimização da função rotinaPedestre()
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+
+void rotinaRuaA()
+{
+    
+    Serial.print("Inicio da rotina A\n");
+	
+    //Bloco de codigo que deixa a rua a aberta
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    
+
+    delayComVerificacao();
+    
+    
+    //Bloco responsável por ligar as luzes amarelas da rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    
+
+    delayComVerificacao();
+    //depois do delay, verifica a prioridade do pedestre
+    
+    //Bloco responsável por desligar as luzes vermelhas da rua A
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    //Já inicia o processo de abertura da rua B
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    
+    
+    verificaBotaoPressionado();
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+
+    Serial.print("Final da rotina A\n");
+}
+
+void rotinaRuaB()
+{
+
+    Serial.print("Inicio da rotina B\n");
+    //Bloco de codigo que deixa a rua b aberta
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    delay(tempo_delayVerde);
+
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    delay(tempo_delayAmarelo);
+
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    Serial.print("Final da rotina B\n");
+}
+
+void rotinaPedestre()
+{
+    Serial.println("Inicio da Rotina Pedestre");
+
+    // Seta a rua B como vermelha
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Abre o semáforo para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    // Aguarda o tempo de travessia
+    delay(tempo_delayPassagemPedestre);
+
+    // Fecha o semáforo para o pedestre
+    digitalWrite(pedestre_verde, LOW);
+
+    // Sinaliza que o semáforo para o pedestre vai fechar
+    for (int i = 0; i < 4; i++) {
+        digitalWrite(pedestre_vermelho, HIGH);
+        delay(600);
+        digitalWrite(pedestre_vermelho, LOW);
+        delay(600);
+    }
+
+    // Reseta a prioridade dos pedestres
+    prioridade_pedestres = false;
+
+    Serial.println("Final da rotina Pedestre");
+}
+
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(100);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == LOW) {
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+void delayComVerificacao()
+{
+  
+  for(int i=0; i<7; i++){
+    verificaBotaoPressionado();
+    delay(500);
+  }
+  
+}
+
+void loop()
+{
+  
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.print("Rotina Pedestre Preferencial\n");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+  
+    
+  
+}
+
+------------------------------
+código mais refinado
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+int estadoDoBotao = 0;
+byte valorBotaoAnterior;
+byte valorBotao;
+
+void setup()
+
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    estadoDoBotao = digitalRead(botao_prioridade);
+    Serial.begin(9600);
+}
+
+void rotinaRuaA() {
+    Serial.println("Inicio da rotina A");
+
+    //Abre a rua A e fecha a rua B
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    delayComVerificacao(tempo_delayVerde);
+    
+    //Luzes amarelas na rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+    
+    delayComVerificacao(tempo_delayAmarelo);
+    
+    //Fecha a rua A e abre a rua B
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+
+    verificaBotaoPressionado();
+    
+    Serial.println("Final da rotina A");
+}
+
+// Função responsável por controlar o semáforo da rua B
+void rotinaRuaB()
+{
+    // Imprime mensagem informando o início da rotina
+    Serial.println("Inicio da rotina B");
+
+    // Acende luz verde da rua B
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    // Aguarda o tempo de verde configurado
+    delay(tempo_delayVerde);
+
+    // Troca luz verde por amarela
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    // Aguarda o tempo de amarelo configurado
+    delay(tempo_delayAmarelo);
+
+    // Troca luz amarela por vermelha
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Imprime mensagem informando o fim da rotina
+    Serial.println("Final da rotina B");
+}
+
+void rotinaPedestre()
+{
+    Serial.println("Inicio da Rotina Pedestre");
+
+    // Seta a rua B como vermelha
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Abre o semáforo para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    // Aguarda o tempo de travessia
+    delay(tempo_delayPassagemPedestre);
+
+    // Fecha o semáforo para o pedestre
+    digitalWrite(pedestre_verde, LOW);
+
+    // Sinaliza que o semáforo para o pedestre vai fechar
+    for (int i = 0; i < 4; i++) {
+        digitalWrite(pedestre_vermelho, HIGH);
+        delay(600);
+        digitalWrite(pedestre_vermelho, LOW);
+        delay(600);
+    }
+
+    // Reseta a prioridade dos pedestres
+    prioridade_pedestres = false;
+
+    Serial.println("Final da rotina Pedestre");
+}
+
+
+//Método responsável por verificar se o botão de prioridade do pedestre foi pressionado
+void verificaBotaoPressionado()
+{
+    valorBotao = digitalRead(botao_prioridade);
+
+  if (valorBotao != valorBotaoAnterior) {
+    delay(100);
+    valorBotao = digitalRead(botao_prioridade);
+    if (valorBotao == LOW) {
+      prioridade_pedestres = true;
+    }
+  }
+  valorBotaoAnterior = valorBotao;
+
+    //A verificação de prioridade do pedestre é feita somente na rotina da Rua A
+    //pois apos a rotina da Rua B, já será a vez do pedestre
+}
+void delayComVerificacao(int TempoMilsg) {
+  int numLoops = TempoMilsg / 500;
+  for(int i = 0; i < numLoops; i++){
+    verificaBotaoPressionado();
+    delay(500);
+  }
+}
+
+void loop()
+{
+  
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+      Serial.println("Rotina Pedestre Preferencial");  
+      rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+  
+    
+  
+}
+
+------------------------
+comentários e organização do código
+
+const int rua_a_desc_vermelho = 5;
+const int rua_a_desc_amarelo = 4;
+const int rua_a_desc_verde = 3;
+const int rua_a_subin_vermelho = 8;
+const int rua_a_subin_amarelo = 7;
+const int rua_a_subin_verde = 6;
+const int rua_b_vermelho = 11;
+const int rua_b_amarelo = 10;
+const int rua_b_verde = 9;
+const int pedestre_vermelho = 12;
+const int pedestre_verde = 13;
+const int botao_prioridade = 2;
+const int tempo_delayVerde = 4500;
+const int tempo_delayAmarelo = 2500;
+const int tempo_delayVermelho = 4500;
+const int tempo_delayPassagemPedestre = 2500;
+bool prioridade_pedestres = false;
+
+void setup()
+{
+    pinMode(rua_a_desc_vermelho, OUTPUT);
+    pinMode(rua_a_desc_amarelo, OUTPUT);
+    pinMode(rua_a_desc_verde, OUTPUT);
+    pinMode(rua_a_subin_vermelho, OUTPUT);
+    pinMode(rua_a_subin_amarelo, OUTPUT);
+    pinMode(rua_a_subin_verde, OUTPUT);
+    pinMode(rua_b_vermelho, OUTPUT);
+    pinMode(rua_b_amarelo, OUTPUT);
+    pinMode(rua_b_verde, OUTPUT);
+    pinMode(pedestre_vermelho, OUTPUT);
+    pinMode(pedestre_verde, OUTPUT);
+    pinMode(botao_prioridade, INPUT_PULLUP);
+    Serial.begin(9600);
+}
+// Função responsável por controlar o semáforo da rua A
+void rotinaRuaA()
+{
+    Serial.println("Inicio da rotina A");
+
+    // Abre a rua A e fecha a rua B
+    digitalWrite(rua_a_desc_vermelho, LOW);
+    digitalWrite(rua_a_subin_vermelho, LOW);
+    digitalWrite(rua_a_desc_verde, HIGH);
+    digitalWrite(rua_a_subin_verde, HIGH);
+    digitalWrite(pedestre_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Aguarda o tempo do verde e realiza a verificação do botão de prioridade 
+    delayComVerificacao(tempo_delayVerde);
+
+    // Luzes amarelas na rua A
+    digitalWrite(rua_a_desc_verde, LOW);
+    digitalWrite(rua_a_subin_verde, LOW);
+    digitalWrite(rua_a_desc_amarelo, HIGH);
+    digitalWrite(rua_a_subin_amarelo, HIGH);
+
+    // Aguarda o tempo do amarelo e realiza a verificação do botão de prioridade
+    delayComVerificacao(tempo_delayAmarelo);
+
+    // Fecha a rua A e abre a rua B
+    digitalWrite(rua_a_desc_amarelo, LOW);
+    digitalWrite(rua_a_subin_amarelo, LOW);
+    digitalWrite(rua_a_desc_vermelho, HIGH);
+    digitalWrite(rua_a_subin_vermelho, HIGH);
+    digitalWrite(rua_b_vermelho, LOW);
+    
+    // Raliza a verificação do botão de prioridade
+    verificaBotaoPressionado();
+
+    Serial.println("Final da rotina A");
+}
+
+// Função responsável por controlar o semáforo da rua B
+void rotinaRuaB()
+{
+    // Imprime mensagem informando o início da rotina
+    Serial.println("Inicio da rotina B");
+
+    // Acende luz verde da rua B
+    digitalWrite(rua_b_vermelho, LOW);
+    digitalWrite(rua_b_verde, HIGH);
+
+    // Aguarda o tempo de verde configurado
+    delay(tempo_delayVerde);
+
+    // Troca luz verde por amarela
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_amarelo, HIGH);
+
+    // Aguarda o tempo de amarelo configurado
+    delay(tempo_delayAmarelo);
+
+    // Troca luz amarela por vermelha
+    digitalWrite(rua_b_amarelo, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Imprime mensagem informando o fim da rotina
+    Serial.println("Final da rotina B");
+}
+
+// Função responsável por controlar o semáforo dos pedestres
+void rotinaPedestre()
+{
+    Serial.println("Inicio da Rotina Pedestre");
+
+    // Seta a rua B como vermelha
+    digitalWrite(rua_b_verde, LOW);
+    digitalWrite(rua_b_vermelho, HIGH);
+
+    // Abre o semáforo para o pedestre
+    digitalWrite(pedestre_vermelho, LOW);
+    digitalWrite(pedestre_verde, HIGH);
+
+    // Aguarda o tempo de travessia
+    delay(tempo_delayPassagemPedestre);
+
+    // Fecha o semáforo para o pedestre
+    digitalWrite(pedestre_verde, LOW);
+
+    // Sinaliza que o semáforo para o pedestre vai fechar
+    for (int i = 0; i < 4; i++)
+    {
+        digitalWrite(pedestre_vermelho, HIGH);
+        delay(600);
+        digitalWrite(pedestre_vermelho, LOW);
+        delay(600);
+    }
+
+    // Reseta a prioridade dos pedestres
+    prioridade_pedestres = false;
+
+    Serial.println("Final da rotina Pedestre");
+}
+
+void verificaBotaoPressionado()
+{
+    if (digitalRead(botao_prioridade) == LOW)
+    {
+        prioridade_pedestres = true;
+    }
+}
+
+void delayComVerificacao(int TempoMilsg)
+{
+    int numLoops = TempoMilsg / 500;
+    for (int i = 0; i < numLoops; i++)
+    {
+        verificaBotaoPressionado();
+        delay(500);
+    }
+}
+
+void loop()
+{
+
+    rotinaRuaA();
+    if (prioridade_pedestres == true)
+    {
+        Serial.println("Rotina Pedestre Preferencial");
+        rotinaPedestre();
+    }
+    rotinaRuaB();
+    rotinaPedestre();
+}
