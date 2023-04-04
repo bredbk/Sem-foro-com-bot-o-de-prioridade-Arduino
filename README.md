@@ -46,9 +46,9 @@ const int tempo_delayPassagemPedestre = 2500;
 
 ## Funcionamento
 
-O programa é dividido em três funções principais, cada uma responsável por controlar um dos semáforos: ```code rotinaRuaA()```, ```coderotinaRuaB()``` e ```code rotinaPedestre()```. Cada rotina controla a troca de sinal em seu semáforo de acordo com o ciclo de tempo definido.
+O programa é dividido em três funções principais, cada uma responsável por controlar um dos semáforos: ```rotinaRuaA()```, ```rotinaRuaB()``` e ``` rotinaPedestre()```. Cada rotina controla a troca de sinal em seu semáforo de acordo com o ciclo de tempo definido.
 
-O botão de prioridade é verificado com a função ```code verificaBotaoPressionado()```, que interrompe o ciclo de tempo atual caso o botão seja pressionado.
+O botão de prioridade é verificado com a função ```verificaBotaoPressionado()```, que interrompe o ciclo de tempo atual caso o botão seja pressionado.
 
 ## Como Usar
 
