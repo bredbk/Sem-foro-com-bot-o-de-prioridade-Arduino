@@ -60,7 +60,7 @@ O botão de prioridade é verificado com a função ```codeverificaBotaoPression
 
 ## Screenshots
 
-![App Screenshot](https://github.com/bredbk/Sem-foro-com-bot-o-de-prioridade-Arduino/blob/main/demonstration.jpeg.jpeg))
+![App Screenshot](https://github.com/bredbk/Sem-foro-com-bot-o-de-prioridade-Arduino/blob/main/demonstration.jpeg))
 
 ## Autores
 
