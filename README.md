@@ -58,6 +58,10 @@ O botão de prioridade é verificado com a função ```codeverificaBotaoPression
 - Verifique a troca de sinais entre os semáforos.
 - Também é possivel utilizar o ambiente de simulação https://www.tinkercad.com/
 
+## Screenshots
+
+![App Screenshot](https://github.com/bredbk/Sem-foro-com-bot-o-de-prioridade-Arduino/blob/main/demonstration.jpeg.jpeg))
+
 ## Autores
 
 - [@Bredbk](https://www.github.com/bredbk)
